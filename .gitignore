@@ -22,3 +22,6 @@ logs
 .env
 .env.*
 !.env.example
+
+/backend/app/data
+/backend/app/__pycache__
