@@ -8,11 +8,12 @@
       <div class="p-4 flex">
         <div class="text-center items-center mt-4 p-4">
           <p class="text-lg mb-4 text-left">↓数字を書いてみよう！</p>
-          <CanvasDrawer />
+          <CanvasDrawer @result="handleResult" @clear="clearPrediction" />
         </div>
         <div class="text-center items-center mt-4 p-4 flex-none w-[400px]">
-          <p class="text-lg mb-4 text-left">　</p>
-          <h1 class="text-2xl font-bold mt-2">AIが考えた結果</h1>
+          <h1 class="text-2xl font-bold mt-2 mb-4">AIが考えた結果</h1>
+          <h2 v-if="prediction !== null" class="text-xl font-bold mb-4" >あなたの書いた数字は{{ prediction }}です！</h2>
+          <h2 v-if="probability !== null" class="text-xl font-bold mb-4" >確信度：{{ (probability * 100).toFixed(1) }}%</h2>
         </div>
       </div>
     </div>
@@ -26,4 +27,18 @@
 
 <script setup>
 import CanvasDrawer from '../components/CanvasDrawer.vue'
+import { ref } from 'vue'
+
+const prediction = ref(null)
+const probability = ref(null)
+
+function handleResult({ digits , probs }) {
+  prediction.value = digits[0]
+  probability.value = probs[0]
+}
+
+function clearPrediction() {
+  prediction.value = null
+  probability.value = null
+}
 </script>

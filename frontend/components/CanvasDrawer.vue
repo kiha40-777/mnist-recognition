@@ -2,7 +2,7 @@
   <div class="flex flex-col g-1rem">
     <canvas
       ref="canvas"
-      width="420" height="420"
+      width="350" height="350"
       @mousedown="startDraw" @mousemove="onDraw" @mouseup="endDraw" @mouseleave="endDraw"
       class="border"
     />
@@ -16,6 +16,8 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
+
+const emit = defineEmits(['result', 'clear'])
 
 const canvas = ref(null)
 let ctx
@@ -48,18 +50,19 @@ const clearCanvas = () => {
   // 黒背景でキャンバス全体をクリア
   ctx.fillStyle = 'black'
   ctx.fillRect(0, 0, canvas.value.width, canvas.value.height)
+  emit('clear')
 }
 
 const predict = async () => {
   const dataUrl = canvas.value.toDataURL('image/png')
   try {
-    const res = await axios.post('http://localhost:8000/predict', { image: dataUrl })
-    alert(`予測: ${res.data.digit} 確信度: ${(res.data.probability * 100).toFixed(2)}%`)
-  } catch (error) {
+    const { data } = await axios.post('http://localhost:8000/predict', { image: dataUrl })
+    emit('result', { digits: data.digits , probs : data.probs })
+    } catch (error) {
     console.error(error)
     alert('予測に失敗しました')
   } finally {
-    clearCanvas()
+    // clearCanvas()
   }
 }
 </script>
