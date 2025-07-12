@@ -36,6 +36,7 @@ onMounted(() => {
 
 const startDraw = e => {
   drawing = true
+  // canvas.setPointerCapture(e.pointerId)
   ctx.beginPath()
   ctx.moveTo(e.offsetX, e.offsetY)
 }
@@ -45,8 +46,9 @@ const onDraw = e => {
     ctx.stroke()
   }
 }
-const endDraw = () => {
+const endDraw = e => {
   drawing = false
+  // canvas.releasePointerCapture(e.pointerId)
 }
 
 const clearCanvas = () => {
@@ -81,4 +83,9 @@ const predict = async () => {
 .canvas-container { display: flex; gap: 1rem; }
 canvas.border { border: 1px solid #ccc; cursor: crosshair; }
 .controls { display: flex; flex-direction: column; gap: .5rem; }
+
+canvas.draw-area {
+  touch-action: none;
+  -ms-touch-action: none;
+}
 </style>
