@@ -7,6 +7,10 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
 
+    autoDeployTrigger:
+      type: branch
+      branch: main
+
   - type: static
     name: frontend
     rootDir: frontend            # ← frontend/ をビルド
@@ -14,3 +18,7 @@ services:
       npm ci
       npm run generate
     staticPublishPath: .output/public
+
+    autoDeployTrigger:
+      type: branch
+      branch: main
