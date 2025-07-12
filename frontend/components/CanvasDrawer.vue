@@ -3,7 +3,10 @@
     <canvas
       ref="canvas"
       width="350" height="350"
-      @mousedown="startDraw" @mousemove="onDraw" @mouseup="endDraw" @mouseleave="endDraw"
+      @pointerdown="startDraw"
+      @pointermove="onDraw"
+      @pointerup="endDraw"
+      @pointerleave="endDraw"
       class="border"
     />
     <div class="flex g-5rem">
