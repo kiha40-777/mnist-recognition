@@ -17,7 +17,7 @@
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
 
-const emit = defineEmits(['result', 'clear'])
+const emit = defineEmits(['result', 'clear', 'thinking'])
 
 const canvas = ref(null)
 let ctx
@@ -57,11 +57,18 @@ const predict = async () => {
   const dataUrl = canvas.value.toDataURL('image/png')
   try {
     const { data } = await axios.post('http://localhost:8000/predict', { image: dataUrl })
-    emit('result', { digits: data.digits , probs : data.probs })
+    emit('thinking', true); console.log('→ true emitted')
+    emit('result', { digits: data.digits, probs: data.probs })
+
+    setTimeout(function () {
+      emit('thinking', false);; console.log('→ false emitted')
+    }, 7500);
+
     } catch (error) {
     console.error(error)
     alert('予測に失敗しました')
   } finally {
+    // emit('thinking', false)
     // clearCanvas()
   }
 }
