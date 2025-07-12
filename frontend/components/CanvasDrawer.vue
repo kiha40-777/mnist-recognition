@@ -56,7 +56,7 @@ const clearCanvas = () => {
 const predict = async () => {
   const dataUrl = canvas.value.toDataURL('image/png')
   try {
-    const { data } = await axios.post('http://localhost:8000/predict', { image: dataUrl })
+    const { data } = await axios.post('https://mnist-recognition.onrender.com/predict', { image: dataUrl })
     emit('thinking', true); console.log('→ true emitted')
     emit('result', { digits: data.digits, probs: data.probs })
 

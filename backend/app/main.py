@@ -8,7 +8,7 @@ app = FastAPI()
 # CORS 設定（フロントホストを適宜置き換え）
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://your-react-app.com", "http://localhost:3000"],
+    allow_origins=["https://mnist-recognition-front.onrender.com", "http://localhost:3000"],
     allow_methods=["POST"],
     allow_headers=["*"],
 )
