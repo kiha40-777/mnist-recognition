@@ -11,7 +11,7 @@
       @pointerleave="endDraw"
       @pointercancel="endDraw"
     />
-    <div class="flex gap-20">                      <!-- g-5rem -> gap-20 (約5rem相当) -->
+    <div class="flex gap-2">                      <!-- g-5rem -> gap-2 -->
       <button
         @click="clearCanvas"
         :disabled="busy"
