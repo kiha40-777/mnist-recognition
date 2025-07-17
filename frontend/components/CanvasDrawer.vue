@@ -36,7 +36,7 @@ onMounted(() => {
 
 const startDraw = e => {
   drawing = true
-  // canvas.setPointerCapture(e.pointerId)
+  canvas.setPointerCapture(e.pointerId) // add
   ctx.beginPath()
   ctx.moveTo(e.offsetX, e.offsetY)
 }
@@ -48,7 +48,7 @@ const onDraw = e => {
 }
 const endDraw = e => {
   drawing = false
-  // canvas.releasePointerCapture(e.pointerId)
+  canvas.releasePointerCapture(e.pointerId) // add
 }
 
 const clearCanvas = () => {
