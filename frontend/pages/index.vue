@@ -35,9 +35,9 @@
       </div>
     </div>
 
-    <div class="flex flex-col items-center justify-center bg-gray-900 text-white">
+    <!-- <div class="flex flex-col items-center justify-center bg-gray-900 text-white">
       <h2 class="text-lg mb-4 mt-4">公認サークル iGEM - Waseda</h2>
-    </div>
+    </div> -->
   </div>
 
 </template>
