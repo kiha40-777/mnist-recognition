@@ -13,8 +13,8 @@
         <div class="text-center items-center mt-4 p-4 flex-none w-[400px]">
           <h1 class="text-2xl font-bold mt-2 mb-4">AIが考えた結果</h1>
           <div v-if="prediction !==null && !thinking">
-            <h2 v-if="prediction !== null" class="text-xl font-bold mb-4" >あなたの書いた数字は{{ prediction }}です！</h2>
-            <h2 v-if="probability !== null" class="text-xl font-bold mb-4" >確信度：{{ ((probability) * 100).toFixed(1) }}%</h2>
+            <h2 v-if="prediction !== null" class="text-xl font-bold mb-2" >あなたの書いた数字は{{ prediction }}です！</h2>
+            <h2 v-if="probability !== null" class="text-xl font-bold mb-2" >確信度：{{ ((probability) * 100).toFixed(1) }}%</h2>
             <div v-for="(digit, index) in pred_array" :key="index" class="text-lg mb-1">
               <span class="font-bold">{{ digit }}:</span> {{ ((prob_array[index]) * 100).toFixed(1) }}%
             </div>
