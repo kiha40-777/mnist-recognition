@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen flex flex-col justify-between">
+  <div class="h-[650px] flex flex-col justify-between">
     <div class="flex flex-col items-center justify-center bg-gray-900 text-white">
       <h1 class="text-4xl font-bold mb-4 mt-8">AI手書き数字認識</h1>
       <p class="text-lg mb-8">自分が何の数字を書いたかAIに当ててもらおう！</p>
@@ -35,9 +35,9 @@
       </div>
     </div>
 
-    <div class="flex flex-col items-center justify-center bg-gray-900 text-white">
+    <!-- <div class="flex flex-col items-center justify-center bg-gray-900 text-white">
       <h2 class="text-lg mb-4 mt-4">公認サークル iGEM - Waseda</h2>
-    </div>
+    </div> -->
   </div>
 
 </template>

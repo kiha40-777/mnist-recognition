@@ -2,7 +2,7 @@
   <div class="flex flex-col g-1rem">
     <canvas
       ref="canvas"
-      width="350" height="350"
+      width="280" height="280"
       @pointerdown="startDraw"
       @pointermove="onDraw"
       @pointerup="endDraw"
