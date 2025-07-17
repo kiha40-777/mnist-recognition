@@ -88,4 +88,6 @@ canvas.draw-area {
   touch-action: none;
   -ms-touch-action: none;
 }
+
+.canvas-wrapper { overscroll-behavior:contain; }
 </style>
